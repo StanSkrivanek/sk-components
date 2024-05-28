@@ -1,0 +1,1 @@
+<h1>Tag Component</h1>

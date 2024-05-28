@@ -34,6 +34,7 @@
 		color: color-mix(in oklab, hsl(var(--hsl-blue)), black 30%);
 		background: color-mix(in oklab, hsl(var(--hsl-blue)), white 60%);
 	}
+
 	.red {
 		color: color-mix(in oklab, hsl(var(--hsl-red)), black 30%);
 		background: color-mix(in oklab, hsl(var(--hsl-red)), white 60%);
@@ -61,6 +62,7 @@
 			background: transparent;
 		}
 	}
+	
 	.purple {
 		color: color-mix(in oklab, hsl(var(--hsl-purple)), black 30%);
 		background: color-mix(in oklab, hsl(var(--hsl-purple)), white 60%);

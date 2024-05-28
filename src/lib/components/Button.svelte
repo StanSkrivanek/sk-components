@@ -7,10 +7,11 @@
 
 <style>
 	button {
+		--_private-color: var(--item-color, var(--hsl-primary));
 		cursor: pointer;
 		display: inline-block;
-		color: color-mix(in oklab, hsl(var(--hsl-black-matte)), white 80%);
-		background: color-mix(in oklab, hsl(var(--hsl-black-matte)), white 10%);
+		color: color-mix(in oklab, hsl(var(--_private-color)), #ffffff 80%);
+		background: color-mix(in oklab, hsl(var(--_private-color)), white 3%);
 		padding: 1rem 2.2rem;
 		border: none;
 		border-radius: 0.25rem;
@@ -19,10 +20,18 @@
 		text-transform: uppercase;
 		font-family: var(--fw-bold);
 		transition: all 0.1s ease-in-out;
+		&:hover {
+			background: color-mix(in oklab, hsl(var(--_private-color)), black 10%);
+			color: color-mix(in oklab, hsl(var(--_private-color)), white 90%);
+		}
 		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-black-matte)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-black-matte)), black 10%);
+			border: 1px solid color-mix(in oklab, hsl(var(--_private-color)), white 30%);
+			color: color-mix(in oklab, hsl(var(--_private-color)), black 10%);
 			background: transparent;
+			&:hover {
+				background: color-mix(in oklab, hsl(var(--_private-color)), white 80%);
+				color: color-mix(in oklab, hsl(var(--_private-color)), black 30%);
+			}
 		}
 		&.large {
 			font-size: var(--md);
@@ -40,190 +49,50 @@
 		}
 		&.pill {
 			border-radius: 100px;
-			/* padding-inline: 1rem; */
 		}
 	}
 
-	.blue {
-		color: color-mix(in oklab, hsl(var(--hsl-blue)), black 30%);
-		background: color-mix(in oklab, hsl(var(--hsl-blue)), white 60%);
-		&:hover {
-			background: color-mix(in oklab, hsl(var(--hsl-blue)), black 5%);
-			color: color-mix(in oklab, hsl(var(--hsl-blue)), white 80%);
-		}
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-blue)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-blue)), black 10%);
-			background: transparent;
-			&:hover {
-				background: color-mix(in oklab, hsl(var(--hsl-blue)), white 80%);
-			}
-		}
-	}
-
+	/* Colors */
 	.red {
-		color: color-mix(in oklab, hsl(var(--hsl-red)), black 30%);
-		background: color-mix(in oklab, hsl(var(--hsl-red)), white 60%);
-		&:hover {
-			background: color-mix(in oklab, hsl(var(--hsl-red)), black 5%);
-			color: color-mix(in oklab, hsl(var(--hsl-red)), white 80%);
-		}
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-red)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-red)), black 10%);
-			background: transparent;
-			&:hover {
-				background: color-mix(in oklab, hsl(var(--hsl-red)), white 80%);
-			}
-		}
+		--item-color: var(--hsl-red);
 	}
-	.green {
-		color: color-mix(in oklab, hsl(var(--hsl-green)), black 30%);
-		background: color-mix(in oklab, hsl(var(--hsl-green)), white 60%);
-		&:hover {
-			background: color-mix(in oklab, hsl(var(--hsl-green)), black 5%);
-			color: color-mix(in oklab, hsl(var(--hsl-green)), white 80%);
-		}
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-green)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-green)), black 10%);
-			background: transparent;
-			&:hover {
-				background: color-mix(in oklab, hsl(var(--hsl-green)), white 80%);
-			}
-		}
+
+	.orange {
+		--item-color: var(--hsl-orange);
 	}
 
 	.yellow {
-		color: color-mix(in oklab, hsl(var(--hsl-gold)), black 30%);
-		background: color-mix(in oklab, hsl(var(--hsl-gold)), white 60%);
-		&:hover {
-			background: color-mix(in oklab, hsl(var(--hsl-gold)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-gold)), black 33%);
-		}
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-gold)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-gold)), black 10%);
-			background: transparent;
-			&:hover {
-				background: color-mix(in oklab, hsl(var(--hsl-gold)), white 80%);
-				color: color-mix(in oklab, hsl(var(--hsl-gold)), black 30%);
-			}
-		}
+		--item-color: var(--hsl-gold);
+	}
+
+	.green {
+		--item-color: var(--hsl-green);
+	}
+	.blue {
+		--item-color: var(--hsl-blue);
 	}
 
 	.purple {
-		color: color-mix(in oklab, hsl(var(--hsl-purple)), black 30%);
-		background: color-mix(in oklab, hsl(var(--hsl-purple)), white 60%);
-		&:hover {
-			background: color-mix(in oklab, hsl(var(--hsl-purple)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-purple)), white 90%);
-		}
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-purple)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-purple)), black 10%);
-			background: transparent;
-			&:hover {
-				background: color-mix(in oklab, hsl(var(--hsl-purple)), white 80%);
-				color: color-mix(in oklab, hsl(var(--hsl-purple)), black 30%);
-			}
-		}
+		--item-color: var(--hsl-purple);
+	}
+
+	.cyan {
+		--item-color: var(--hsl-cyan);
 	}
 
 	.pink {
-		color: color-mix(in oklab, hsl(var(--hsl-pink)), black 30%);
-		background: color-mix(in oklab, hsl(var(--hsl-pink)), white 60%);
-		&:hover {
-			background: color-mix(in oklab, hsl(var(--hsl-pink)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-pink)), white 90%);
-		}
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-pink)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-pink)), black 10%);
-			background: transparent;
-			&:hover {
-				background: color-mix(in oklab, hsl(var(--hsl-pink)), white 80%);
-				color: color-mix(in oklab, hsl(var(--hsl-pink)), black 30%);
-			}
-		}
+		--item-color: var(--hsl-pink);
 	}
+
 	.platinum {
-		/* pointer-events: none; */
-		color: color-mix(in oklab, hsl(var(--hsl-platinum)), black 10%);
-		background: color-mix(in oklab, hsl(var(--hsl-platinum)), white 60%);
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-platinum)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-platinum)), black 10%);
-			background: transparent;
-		}
+		--item-color: var(--hsl-platinum);
 	}
-	.cyan {
-		color: color-mix(in oklab, hsl(var(--hsl-cyan)), black 30%);
-		background: color-mix(in oklab, hsl(var(--hsl-cyan)), white 60%);
-		&:hover {
-			background: color-mix(in oklab, hsl(var(--hsl-cyan)), white 30%);
-			/* color: color-mix(in oklab, hsl(var(--hsl-cyan)), white 90%); */
-		}
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-cyan)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-cyan)), black 10%);
-			background: transparent;
-			&:hover {
-				background: color-mix(in oklab, hsl(var(--hsl-cyan)), white 80%);
-				color: color-mix(in oklab, hsl(var(--hsl-cyan)), black 30%);
-			}
-		}
-	}
-	.orange {
-		color: color-mix(in oklab, hsl(var(--hsl-orange)), black 30%);
-		background: color-mix(in oklab, hsl(var(--hsl-orange)), white 60%);
-		&:hover {
-			background: color-mix(in oklab, hsl(var(--hsl-orange)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-orange)), white 90%);
-		}
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-orange)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-orange)), black 10%);
-			background: transparent;
-			&:hover {
-				background: color-mix(in oklab, hsl(var(--hsl-orange)), white 80%);
-				color: color-mix(in oklab, hsl(var(--hsl-orange)), black 30%);
-			}
-		}
-	}
+
 	.steel {
-		color: color-mix(in oklab, hsl(var(--hsl-steel)), black 30%);
-		background: color-mix(in oklab, hsl(var(--hsl-steel)), white 60%);
-		&:hover {
-			background: color-mix(in oklab, hsl(var(--hsl-steel)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-steel)), white 90%);
-		}
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-steel)), white 30%);
-			color: color-mix(in oklab, hsl(var(--hsl-steel)), black 10%);
-			background: transparent;
-			&:hover {
-				background: color-mix(in oklab, hsl(var(--hsl-steel)), white 80%);
-				color: color-mix(in oklab, hsl(var(--hsl-steel)), black 30%);
-			}
-		}
+		--item-color: var(--hsl-steel);
 	}
 
 	.black {
-		color: color-mix(in oklab, hsl(var(--hsl-black-matte)), white 80%);
-		background: color-mix(in oklab, hsl(var(--hsl-black-matte)), white 10%);
-		&:hover {
-			background: color-mix(in oklab, hsl(var(--hsl-black-matte)), white 25%);
-			color: color-mix(in oklab, hsl(var(--hsl-black-matte)), white 100%);
-		}
-		&.outline {
-			border: 1px solid color-mix(in oklab, hsl(var(--hsl-black-matte)), white 40%);
-			color: color-mix(in oklab, hsl(var(--hsl-black-matte)), white 20%);
-			background: transparent;
-			&:hover {
-				background: color-mix(in oklab, hsl(var(--hsl-black-matte)), white 90%);
-				color: color-mix(in oklab, hsl(var(--hsl-black-matte)), white 10%);
-			}
-		}
+		--item-color: var(--hsl-black-matte);
 	}
 </style>

@@ -73,10 +73,10 @@
 
 	/* colors */
 
-	--showColor: hsl(196, 100%, 50%);
+	--showColor: hsl(11, 91%, 60%);
 	--transparent: transparent;
 
-	--hsl-main: 10 89% 55%;
+	--hsl-primary: 260 82% 71%;
 	--hsl-secondary: 196 100% 50%;
 
 	--hsl-white: 0 0% 98%;
@@ -97,7 +97,7 @@
 	--hsl-charcoal: 204 19% 26%;
 
 	/* base HSL colors */
-	--hsl-orange: 11 80% 60%;
+	--hsl-orange: 11 91% 60%;
 	--hsl-orangered: 16 100% 50%;
 	--hsl-yellow: 46 100% 50%;
 	--hsl-gold: 51 100% 50%;

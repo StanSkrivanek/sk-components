@@ -9,8 +9,8 @@
 <Badge is="blue">info</Badge>
 <Badge is="disabled">disabled</Badge>
 <h1>Buttons</h1>
-<Button is="large orange outline">standard</Button>
+<Button is="">standard</Button>
+<Button is="red" >standard</Button>
 <Button is="orange">standard</Button>
-<Button is="medium orange">standard</Button>
-<Button is="small orange pill">standard</Button>
+<Button is="cyan">standard</Button>
 
