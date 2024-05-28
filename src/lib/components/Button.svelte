@@ -10,7 +10,7 @@
 		--_private-color: var(--item-color, var(--hsl-primary));
 		cursor: pointer;
 		display: inline-block;
-		color: color-mix(in oklab, hsl(var(--_private-color)), #ffffff 80%);
+		color: color-mix(in oklab, hsl(var(--_private-color)), white 80%);
 		background: color-mix(in oklab, hsl(var(--_private-color)), white 3%);
 		padding: 1rem 2.2rem;
 		border: none;
