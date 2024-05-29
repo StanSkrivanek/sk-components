@@ -3,13 +3,15 @@
 	export const { is, children } = $props();
 </script>
 
-<button class={is}>{@render (children as Snippet)()}</button>
+<button class={is} onclick={() => console.log('click')}>{@render (children as Snippet)()}</button>
 
 <style>
 	button {
-		--_private-color: var(--item-color, var(--hsl-primary));
+		/* private color contains --item-color that is passed in from props and fallback - the main color */
+		/* current fallback is se to neutral color but i can be set eg. to --hsl-primary that is passed from app.css*/
+		/* --_private-color: var(--item-color, var(--hsl-primary)); */
+		--_private-color: var(--item-color, var(--hsl-steel));
 		cursor: pointer;
-		display: inline-block;
 		color: color-mix(in oklab, hsl(var(--_private-color)), white 80%);
 		background: color-mix(in oklab, hsl(var(--_private-color)), white 3%);
 		padding: 1rem 2.2rem;
@@ -52,7 +54,7 @@
 		}
 	}
 
-	/* Colors */
+		/* Colors - can be used in Global app.css instead of here*/
 	.red {
 		--item-color: var(--hsl-red);
 	}

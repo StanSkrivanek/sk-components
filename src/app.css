@@ -73,7 +73,7 @@
 
 	/* colors */
 
-	--showColor: hsl(11, 91%, 60%);
+	--showColor: hsl(220, 4%, 85%);
 	--transparent: transparent;
 
 	--hsl-primary: 260 82% 71%;
@@ -91,6 +91,7 @@
 	--hsl-alabaster: 48 29% 90%;
 
 	/* grays */
+	--hsl-lightgray: 220 13% 91%;
 	--hsl-gray: 213 36% 27%;
 	--hsl-platinum: 40 5% 89%;
 	--hsl-steel: 203 5% 47%;

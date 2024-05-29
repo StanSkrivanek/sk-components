@@ -7,7 +7,7 @@
 
 <style>
 	span {
-		--_private-color: var(--item-color, var(--hsl-primary));
+		--_private-color: var(--item-color, var(--hsl-steel));
 		color: color-mix(in oklab, hsl(var(--_private-color)), white 80%);
 		background: color-mix(in oklab, hsl(var(--_private-color)), white 3%);
 		padding: 0.25rem 0.75rem;
@@ -31,7 +31,8 @@
 			padding-inline: 1rem;
 		}
 	}
-	/* Colors */
+
+	/* Colors - can be used in Global app.css instead of here*/
 	.red {
 		--item-color: var(--hsl-red);
 	}
