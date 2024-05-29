@@ -1,10 +1,9 @@
 <script lang="ts">
-	// import type { Snippet } from 'svelte';
-
+	// NOTE: Switches: A switch is a control that toggles a single setting on or off, much like a light switch. It's used for binary options where the user must choose between two states, such as enabling/disabling settings. Switches are ideal for real-time settings that take effect immediately.
 	interface Props {
-		is: string;
+		is?: string;
 	}
-	
+
 	let { is }: Props = $props();
 
 	let isOn = $state(false);
@@ -15,11 +14,11 @@
 </script>
 
 <button
-	class={`${is} toggle ${isOn ? 'isOn' : 'isOff'}`}
+	class={`${is} `}
 	type="button"
 	aria-checked={isOn}
 	onclick={handleToggle}
-	onkeyup={handleToggle}
+	onkeyup={() => handleToggle}
 	role="switch"
 >
 	<span aria-hidden="true" class="sr-only">off</span>
@@ -32,20 +31,24 @@
 		--general-size: 30px;
 		--border-width: calc(var(--general-size) / 10);
 		--_private-color: var(--item-color, var(--hsl-lightgray));
-
+		--checked-color: var(--item-color, var(--hsl-green));
 		position: relative;
 		display: inline-flex;
 		align-items: center;
 		cursor: pointer;
 		border: var(--border-width) solid color-mix(in oklab, hsl(var(--hsl-lightgray)), white 5%);
 		border-radius: 100px;
-		transition: all 0.2s ease-in-out;
 		height: var(--general-size);
 		width: calc(var(--general-size) * 2);
 		background: color-mix(in oklab, hsl(var(--hsl-lightgray)), white 5%);
+		transition: all 0.1s ease-in-out;
 
+		&:focus,
+		&:hover {
+			outline: 2px solid hsl(var(--checked-color));
+			outline-offset: 3px;
+		}
 		&[aria-checked='true'] {
-			--checked-color: var(--item-color, var(--hsl-green));
 			background: hsl(var(--checked-color));
 			border-color: hsl(var(--checked-color));
 			& .toggle-inner {

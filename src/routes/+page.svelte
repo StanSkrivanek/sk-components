@@ -1,12 +1,9 @@
 <script lang="ts">
-	import Badge from '$lib/components/Badge.svelte';
-	import Button from '$lib/components/Button.svelte';
-	import ToggleBasic from '$lib/components/ToggleBasic.svelte';
-
-	
+	import BtnToggleBasic from '$lib/elements/switch/as_button/BtnToggleBasic.svelte';
+	import BtnToggleLabel from '$lib/elements/switch/as_button/BtnToggleLabel.svelte';
 </script>
 
-<h1>Badges</h1>
+<!-- <h1>Badges</h1>
 <Badge>Basic</Badge>
 <Badge is="red">Error</Badge>
 <Badge is="green">Success</Badge>
@@ -31,10 +28,29 @@
 	<Button is="black">black</Button>
 </div>
 
-<hr />
+<hr /> -->
 
-<h1>Toggle</h1>
-<ToggleBasic is="blue" />
+<h1>Toggle Button</h1>
+<div class="flex__c">
+	<BtnToggleBasic is="green" />
+	<BtnToggleBasic is="yellow" />
+	<BtnToggleBasic is="blue" />
+	<BtnToggleBasic is="red" />
+	<BtnToggleBasic is="purple" />
+</div>
+
+<!-- <h1>Forms Toggle Checkbox</h1>
+<div class="flex__c">
+	<CheckSwitchBasic />
+	<Checkbox_1 />
+</div> -->
+
+<h1>Toggle Button with Label</h1>
+<div class="flex__c">
+	<BtnToggleLabel />
+	<BtnToggleLabel is="red" />
+	<BtnToggleLabel is="blue" />
+</div>
 
 <style>
 	.flex__c {
