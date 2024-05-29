@@ -51,7 +51,7 @@
 		--general-size: 30px;
 		--border-width: calc(var(--general-size) / 10);
 		--_private-color: var(--item-color, var(--hsl-lightgray));
-		--checked-color: var(--item-color, var(--hsl-green));
+		--_checked-color: var(--item-color, var(--hsl-green));
 
 		position: relative;
 		display: inline-flex;
@@ -66,18 +66,17 @@
 
 		&:focus,
 		&:hover {
-			outline: 2px solid hsl(var(--checked-color));
+			outline: 2px solid hsl(var(--_checked-color));
 			outline-offset: 3px;
 		}
 		&[aria-checked='true'] {
-			/* --checked-color: var(--item-color, var(--hsl-green)); */
-			background: hsl(var(--checked-color));
-			border-color: hsl(var(--checked-color));
+			background: hsl(var(--_checked-color));
+			border-color: hsl(var(--_checked-color));
 			& .toggle-inner {
 				transform: translateX(var(--general-size));
 			}
 			& .toggle-inner {
-				border-color: hsl(var(--checked-color));
+				border-color: hsl(var(--_checked-color));
 			}
 		}
 
