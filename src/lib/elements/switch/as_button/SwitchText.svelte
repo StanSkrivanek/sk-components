@@ -1,7 +1,9 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	// NOTE: Switches: A switch is a control that toggles a single setting on or off, much like a light switch. It's used for binary options where the user must choose between two states, such as enabling/disabling settings. Switches are ideal for real-time settings that take effect immediately.
 	interface Props {
 		is?: string;
+		children?: Snippet;
 	}
 
 	let { is }: Props = $props();
@@ -23,12 +25,13 @@
 >
 	<span aria-hidden="true" class="sr-only">off</span>
 	<span aria-hidden="true" class="sr-only">on</span>
-	<span aria-hidden="true" class="toggle-inner"></span>
+	<span aria-hidden="true" class="toggle-inner">{isOn ? 'on' : 'off'}</span>
 </button>
 
 <style>
 	button[role='switch'] {
 		--general-size: 30px;
+		--xxs: 0.5rem;
 		--border-width: calc(var(--general-size) / 10);
 		--_private-color: var(--item-color, var(--hsl-lightgray));
 		--_checked-color: var(--item-color, var(--hsl-green));
@@ -60,15 +63,25 @@
 		}
 
 		& .toggle-inner {
-			position: absolute;
 			top: calc(var(--border-width) * -1);
 			left: calc(var(--border-width) * -1);
 			width: var(--general-size);
 			height: var(--general-size);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			font-size: var(--xxs);
+			font-family: var(--fw-bold);
+			text-transform: uppercase;
 			border-radius: 100px;
 			background: white;
 			border: var(--border-width) solid color-mix(in oklab, hsl(var(--hsl-lightgray)), white 5%);
 			transition: all 0.2s ease-in-out;
+
+			&::first-child {
+				color: red;
+			}
 		}
 
 		& .sr-only {

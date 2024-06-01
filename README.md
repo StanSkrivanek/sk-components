@@ -1,38 +1,39 @@
-# create-svelte
+# Stans Svelte Components lib
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## Elements
 
-## Creating a project
+### Badges
 
-If you're seeing this, you've probably already done this step. Congrats!
+[x] - basic
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+### Switch
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+[x] - basic Pill
+[x] - with ON-OFF text
+[ ] - with Icons in tip
 
-## Developing
+### Button
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+[x] Basic `<button>`
+[ ] Basic `<a>`
 
-```bash
-npm run dev
+## TODO
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+- **Forms**
+  - Inputs (single, group with Icon etc)
+  - Checkbox
+  - Radio
+  - Calendar
+  - Select
+- **UI**
+  - Tooltips
+  - Toasts
+  - Pagination
+  - Tabs
+  - Avatars
+  - Navigations
 
-## Building
+## Components
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- Modal
+- Dialog
