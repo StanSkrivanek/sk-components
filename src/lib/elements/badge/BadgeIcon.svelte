@@ -1,11 +1,19 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	export const { is, children } = $props();
+	// export let onClick: () => void;
+	export const { is, children, onClick } = $props();
 </script>
 
-<span class={is}
-	>{@render (children as Snippet)()}
-	<span class="icon">
+<span class={is}>
+	{@render (children as Snippet)()}
+	<span
+		class="icon"
+		role="button"
+		aria-label="badge"
+		tabindex="0"
+		onclick={() => onClick()}
+		onkeyup={() => onClick()}
+	>
 		<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M22.7071 1.29289C23.0976 1.68342 23.0976 2.31658 22.7071 2.70711L2.70711 22.7071C2.31658 23.0976 1.68342 23.0976 1.29289 22.7071C0.902369 22.3166 0.902369 21.6834 1.29289 21.2929L21.2929 1.29289C21.6834 0.902369 22.3166 0.902369 22.7071 1.29289Z"

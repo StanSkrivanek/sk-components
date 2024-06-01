@@ -1,15 +1,18 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	export const { is, children } = $props();
+	export const { is, children, onClick } = $props();
 </script>
 
-<button class={is} onclick={() => console.log('click')}>{@render (children as Snippet)()}</button>
+<button class={is} tabindex="0" onclick={() => onClick()} onkeyup={() => onClick()}
+	>{@render (children as Snippet)()}</button
+>
 
 <style>
 	button {
 		/* private color contains --item-color that is passed in from props and fallback - the main color */
 		/* current fallback is se to neutral color but i can be set eg. to --hsl-primary that is passed from app.css*/
 		/* --_private-color: var(--item-color, var(--hsl-primary)); */
+
 		--_private-color: var(--item-color, var(--hsl-steel));
 		cursor: pointer;
 		color: color-mix(in oklab, hsl(var(--_private-color)), white 80%);
@@ -54,7 +57,7 @@
 		}
 	}
 
-		/* Colors - can be used in Global app.css instead of here*/
+	/* Colors - can be used in Global app.css instead of here*/
 	.red {
 		--item-color: var(--hsl-red);
 	}
