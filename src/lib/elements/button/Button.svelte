@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	export const { is, children, onClick } = $props();
+	export const { is, children, onClick, label } = $props();
 </script>
 
 <button class={is} tabindex="0" onclick={() => onClick()} onkeyup={() => onClick()}
-	>{@render (children as Snippet)()}</button
+	>{label}</button
 >
 
 <style>

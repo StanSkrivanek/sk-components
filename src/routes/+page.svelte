@@ -10,20 +10,20 @@
 <h1>Badges</h1>
 <h2 class="sub-category">Badge basic</h2>
 <div class="flex__c">
-	<Badge is=" redpill outline">Basic</Badge>
-	<Badge is="red">Error</Badge>
-	<Badge is="green">Success</Badge>
-	<Badge is="yellow">Warning</Badge>
-	<Badge is="blue">info</Badge>
-	<Badge is="platinum">disabled</Badge>
+	<Badge is=" redpill outline" label="Basic"/>
+	<Badge is="red" label="red"/>
+	<Badge is="green" label="green"/>
+	<Badge is="yellow" label="yellow"/>
+	<Badge is="blue" label="blue"/>
+	<Badge is="platinum" label="platinum"/>
 </div>
 
 <h2 class="sub-category">Badge with Icon</h2>
 <div class="flex__c">
-	<BadgeWithIcon is="red pill outline" onClick={() => {console.log("click")}}>Basic</BadgeWithIcon>
-	<BadgeWithIcon is="blue" onClick={() => {console.log("click")}}>Basic</BadgeWithIcon>
-	<BadgeWithIcon is="green medium" onClick={() => {console.log("click")}}>Basic</BadgeWithIcon>
-	<BadgeWithIcon is="" onClick={() => {console.log("click")}}>Basic</BadgeWithIcon>
+	<BadgeWithIcon is="red pill outline" onClick={() => {console.log("click")}} label="red"/>
+	<BadgeWithIcon is="blue pill" onClick={() => {console.log("click")}} label="info"/>
+	<BadgeWithIcon is="green medium" onClick={() => {console.log("click")}} label="success"/>
+	<BadgeWithIcon is=" medium"  onClick={() => {console.log("click")}} label="basic"/>
 </div>
 
 <hr />
@@ -32,17 +32,17 @@
 
 <h2 class="sub-category">Button basic</h2>
 <div class="flex__c">
-	<Button onClick={() => {console.log("click")}}>basic</Button>
-	<Button is="red" onClick={() => {console.log("click")}}>red</Button>
-	<Button is="orange" onClick={() => {console.log("click")}}>orange</Button>
-	<Button is="yellow" onClick={() => {console.log("click")}}>yellow</Button>
-	<Button is="green" onClick={() => {console.log("click")}}>green</Button>
-	<Button is="cyan" onClick={() => {console.log("click")}}>cyan</Button>
-	<Button is="blue" onClick={() => {console.log("click")}}>blue</Button>
-	<Button is="pink" onClick={() => {console.log("click")}}>pink</Button>
-	<Button is="purple" onClick={() => {console.log("click")}}>purple</Button>
-	<Button is="platinum" onClick={() => {console.log("click")}}>platinum</Button>
-	<Button is="black" onClick={() => {console.log("click")}}>black</Button>
+	<Button onClick={() => {console.log("click")}} label="button"/>
+	<Button is="red" onClick={() => {console.log("click")}} label="button"/>
+	<Button is="orange" onClick={() => {console.log("click")}} label="button"/>
+	<Button is="yellow" onClick={() => {console.log("click")}} label="button"/>
+	<Button is="green" onClick={() => {console.log("click")}} label="button"/>
+	<Button is="cyan" onClick={() => {console.log("click")}} label="button"/>
+	<Button is="blue" onClick={() => {console.log("click")}} label="button"/>
+	<Button is="pink" onClick={() => {console.log("click")}} label="button"/>
+	<Button is="purple" onClick={() => {console.log("click")}} label="button"/>
+	<Button is="platinum" onClick={() => {console.log("click")}} label="button"/>
+	<Button is="black" onClick={() => {console.log("click")}} label="button"/>
 </div>
 
 <hr />

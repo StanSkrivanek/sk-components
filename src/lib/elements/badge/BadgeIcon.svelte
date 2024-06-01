@@ -1,11 +1,10 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
 	// export let onClick: () => void;
-	export const { is, children, onClick } = $props();
+	export const { is, children, onClick, label } = $props();
 </script>
 
 <span class={is}>
-	{@render (children as Snippet)()}
+	{label}
 	<span
 		class="icon"
 		role="button"
@@ -71,7 +70,7 @@
 		&.medium {
 			font-size: var(--sm);
 			letter-spacing: -0.02rem;
-			/* padding: 0.25rem 1rem; */
+			/* padding-block: .5rem; */
 		}
 
 		&.pill {

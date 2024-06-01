@@ -1,9 +1,10 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	export const { is, children } = $props();
+	export const { is, children, label } = $props();
 </script>
 
-<span class={is}>{@render (children as Snippet)()}</span>
+<!-- <span class={is}>{@render (children as Snippet)()}</span> -->
+<span class={is}>{label}</span>
 
 <style>
 	span {
