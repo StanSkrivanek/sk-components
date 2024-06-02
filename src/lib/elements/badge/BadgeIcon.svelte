@@ -1,10 +1,10 @@
 <script lang="ts">
-	// export let onClick: () => void;
-	export const { is, children, onClick, label } = $props();
+	import type { Snippet } from 'svelte';
+	export const { is, children, onClick} = $props();
 </script>
 
 <span class={is}>
-	{label}
+	{@render (children as Snippet)()}
 	<span
 		class="icon"
 		role="button"

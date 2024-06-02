@@ -51,11 +51,11 @@
 	--fw-black: 'Black', sans-serif;
 	--fw-bold: 'Bold', sans-serif;
 	--fw-extra-bold: 'ExtraBold', sans-serif;
-	--fw-extra-light: 'ExtraLight', sans-serif;
-	--fw-light: 'Light', sans-serif;
+	--fw-semi-bold: 'SemiBold', sans-serif;
 	--fw-medium: 'Medium', sans-serif;
 	--fw-regular: 'Regular', sans-serif;
-	--fw-semi-bold: 'SemiBold', sans-serif;
+	--fw-light: 'Light', sans-serif;
+	--fw-extra-light: 'ExtraLight', sans-serif;
 	--fw-thin: 'Thin', sans-serif;
 
 	/* fonts scale */
@@ -70,6 +70,7 @@
 	--h6: var(--base-size);
 	--sm: calc(var(--base-size) / var(--scale));
 	--xs: calc(var(--sm) / var(--scale));
+	--xxs: calc(var(--xs) / var(--scale));
 
 	/* colors */
 

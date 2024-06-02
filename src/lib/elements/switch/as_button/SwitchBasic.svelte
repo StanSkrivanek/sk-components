@@ -1,5 +1,4 @@
 <script lang="ts">
-	
 	// NOTE: Switches: A switch is a control that toggles a single setting on or off, much like a light switch. It's used for binary options where the user must choose between two states, such as enabling/disabling settings. Switches are ideal for real-time settings that take effect immediately.
 	interface Props {
 		is?: string;
@@ -11,6 +10,7 @@
 
 	function handleToggle() {
 		isOn = !isOn;
+		console.log(isOn);
 	}
 </script>
 

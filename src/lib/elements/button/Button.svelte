@@ -1,12 +1,11 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	export const { is, children, onClick, label } = $props();
+	export const { is, children, onClick } = $props();
 </script>
 
 <button class={is} tabindex="0" onclick={() => onClick()} onkeyup={() => onClick()}
-	>{label}</button
+	>{@render (children as Snippet)()}</button
 >
-
 <style>
 	button {
 		/* private color contains --item-color that is passed in from props and fallback - the main color */
@@ -41,7 +40,7 @@
 		&.large {
 			font-size: var(--md);
 			letter-spacing: -0.02rem;
-			padding: 1.2rem 3rem;
+			padding: 1rem 2rem;
 		}
 		&.medium {
 			font-size: var(--sm);
@@ -51,6 +50,10 @@
 		&.small {
 			padding: 0.75rem 1.4rem;
 			font-size: var(--xs);
+		}
+		&.extrasmall {
+			padding: 0.5rem 1rem;
+			font-size: var(--xxs);
 		}
 		&.pill {
 			border-radius: 100px;
