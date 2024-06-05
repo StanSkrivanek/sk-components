@@ -1,11 +1,36 @@
 <script lang="ts">
+	import BtnSwitchInnerText from './../lib/elements/switch/as_button/BtnSwitchInnerText.svelte';
+	import BtnSwitchLabel from './../lib/elements/switch/as_button/BtnSwitchLabel.svelte';
+	import BtnSwitchBasic from './../lib/elements/switch/as_button/BtnSwitchBasic.svelte';
+	import BtnSwitchInnerIcon from '$lib/elements/switch/as_button/BtnSwitchInnerIcon.svelte';
 	import Badge from '$lib/elements/badge/Badge.svelte';
 	import BadgeWithIcon from '$lib/elements/badge/BadgeIcon.svelte';
 	import Button from '$lib/elements/button/Button.svelte';
-	import BtnSwBasic from '$lib/elements/switch/as_button/SwitchBasic.svelte';
-	import BtnSwLabel from '$lib/elements/switch/as_button/SwitchLabel.svelte';
-	import SwitchText from '$lib/elements/switch/as_button/SwitchText.svelte';
+	import SwitchLabel from '$lib/elements/switch/as_button/BtnSwitchLabel.svelte';
+	// import SwitchIcons from '../lib/elements/switch/as_button/_SwitchIcons.svelte';
+	// import New from '$lib/elements/switch/as_button/New.svelte';
+	// import BtnSwBasic from '$lib/elements/switch/as_button/SwitchBasic.svelte';
+	// import BtnSwLabel from '$lib/elements/switch/as_button/_SwitchLabel.svelte';
+	// import SwitchText from '$lib/elements/switch/as_button/_SwitchText.svelte';
+	// import SwitchCheckboxLabel from '$lib/elements/switch/as_checkbox/SwitchCheckbox.svelte';
+	// import SwitchCheckboxThumbIcon from '$lib/elements/switch/as_checkbox/SwitchCheckboxThumbIcon.svelte';
 </script>
+
+<!-- <CheckSwitchBasic /> -->
+<div class="flex__c">
+	<BtnSwitchBasic is="red" />
+	<BtnSwitchLabel is="blue" />
+	<BtnSwitchInnerText is="blue"  />
+	<BtnSwitchInnerIcon is="pink" />
+	<!-- <SwitchBasic is="black" /> -->
+	<!-- <SwitchIcons  />
+	<SwitchIcons is="red" />
+	<SwitchIcons is="blue" /> -->
+	<!-- <SwitchCheckboxLabel is="black" disabled /> -->
+	<!-- <SwitchCheckboxLabel is="blue" hasLabel /> -->
+	<!-- <SwitchCheckboxThumbIcon is="blue" /> -->
+</div>
+<!-- <New is="red" /> -->
 
 <h1>Badges</h1>
 <p class="sub-category">Badge size</p>
@@ -188,31 +213,32 @@
 
 <hr />
 
-<h1>Switch Buttons</h1>
+<h1>Button Switch</h1>
 
 <p class="sub-category">Toggle Button</p>
 <div class="flex__c">
-	<BtnSwBasic is="green" />
-	<BtnSwBasic is="yellow" />
-	<BtnSwBasic is="blue" />
-	<BtnSwBasic is="red" />
-	<BtnSwBasic is="purple" />
+	<BtnSwitchBasic  />
 </div>
 
 <p class="sub-category">Toggle Button with Label</p>
 <div class="flex__c">
-	<BtnSwLabel />
-	<BtnSwLabel is="red" />
-	<BtnSwLabel is="blue" />
+	<BtnSwitchLabel  />
+	
 </div>
 
 <p class="sub-category">Toggle Button with text</p>
 <div class="flex__c">
-	<SwitchText>Basic</SwitchText>
-	<SwitchText is="blue">Basic</SwitchText>
-	<SwitchText is="red">Basic</SwitchText>
-	<SwitchText is="orange">Basic</SwitchText>
+<BtnSwitchInnerText  />
 </div>
+
+<p class="sub-category">Toggle Button with icon</p>
+<div class="flex__c">
+<BtnSwitchInnerIcon  />
+</div>
+
+<hr />
+
+<h1>Checkbox Switch</h1>
 
 <style>
 	h1 {
