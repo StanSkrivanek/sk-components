@@ -1,28 +1,44 @@
 <script lang="ts">
-	import Badge from '$lib/elements/badge/Badge.svelte';
-	import BadgeWithIcon from '$lib/elements/badge/BadgeIcon.svelte';
-	import Button from '$lib/elements/button/Button.svelte';
-	import BtnSwitchInnerIcon from '$lib/elements/button/as_switch/BtnSwitchInnerIcon.svelte';
-	import Checkbox from '$lib/elements/checkbox/Checkbox.svelte';
+	import CheckboxTest from '$lib/elements/checkbox/CheckboxTest.svelte';
+	// import Badge from '$lib/elements/badge/Badge.svelte';
+	// import BadgeWithIcon from '$lib/elements/badge/BadgeIcon.svelte';
+	// import Button from '$lib/elements/button/Button.svelte';
+	// import BtnSwitchInnerIcon from '$lib/elements/button/as_switch/BtnSwitchInnerIcon.svelte';
 
-	import BtnSwitchBasic from '$lib/elements/button/as_switch/BtnSwitchBasic.svelte';
-	import BtnSwitchInnerText from '$lib/elements/button/as_switch/BtnSwitchInnerText.svelte';
-	import BtnSwitchLabel from '$lib/elements/button/as_switch/BtnSwitchLabel.svelte';
-	// import CheckboxSwitch from '$lib/elements/checkbox/as_switch/CheckboxSwitch.svelte';
+	// import BtnSwitchBasic from '$lib/elements/button/as_switch/BtnSwitchBasic.svelte';
+	// import BtnSwitchInnerText from '$lib/elements/button/as_switch/BtnSwitchInnerText.svelte';
+	// import BtnSwitchLabel from '$lib/elements/button/as_switch/BtnSwitchLabel.svelte';
 </script>
 
 <div class="flex__c">
 	<!-- stuff -->
-	<Checkbox checked />
-	<Checkbox is="red" hasLabel />
-	<Checkbox is="black" />
-	<Checkbox disabled checked />
-	<!-- <CheckboxSwitch is="blue " hasLabel/> -->
-	<!-- <CheckboxSwitch is="red " hasLabel/> -->
-	<!-- <CheckboxSwitch  hasLabel/> -->
+	<!-- <CheckboxSwitch is="red pill" showState>WI-FI</CheckboxSwitch> -->
+	<!-- <Checkbox is="red pill" showState checked role="switch" /> -->
+	<form action="">
+		<div class="checkbox-group">
+			<CheckboxTest label="Select all" isParent />
+			<CheckboxTest name="wifi" label="wifi" checked />
+			<CheckboxTest name="ethernet" label="ethernet" />
+			<CheckboxTest name="bluetooth" label="bluetooth" />
+			<!-- <ul>
+				<li><CheckboxTest name="connection" label="wifi" /></li>
+				<li><CheckboxTest name="connection" label="ethernet" /></li>
+			</ul> -->
+		</div>
+	</form>
+	<!-- <CheckboxTest name="connection" value="wi-fi" isParent label="wifi" /> -->
+	<!-- <CheckboxTest name="connection" value="ethernet" isParent label="ethernet" /> -->
 </div>
 
-<h1>Badges</h1>
+<!-- <div class="flex__c"> -->
+<!-- stuff -->
+<!-- <Checkbox checked />
+	<Checkbox is="red" hasLabel />
+	<Checkbox is="black" />
+	<Checkbox disabled checked /> -->
+<!-- </div> -->
+
+<!-- <h1>Badges</h1>
 <p class="sub-category">Badge size</p>
 
 <div class="flex__c">
@@ -234,7 +250,7 @@
 
 <hr />
 
-<h1>Checkbox Switch</h1>
+<h1>Checkbox Switch</h1> -->
 
 <style>
 	h1 {

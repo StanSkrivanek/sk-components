@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
+
 	// temporary ID for the switch input element to be able to tab to it with the keyboard. In real application the Id should be generated standars ways.
 	const thisId = Math.random().toString(36).substring(2, 15);
 	//  OR
@@ -7,10 +9,13 @@
 	interface Props {
 		is?: string;
 		disabled?: boolean;
-		hasLabel?: boolean;
+		label?: string;
+		showState?: boolean;
+		children?: Snippet;
+		
 	}
 
-	let { is, disabled, hasLabel }: Props = $props();
+	let { is, disabled, label, showState, children}: Props = $props();
 
 	let isOn = $state(false);
 
@@ -33,8 +38,18 @@
 		tabindex="0"
 		{disabled}
 	/>
-	{#if hasLabel}
+
+	<!-- display label from prop -->
+	{#if label}
+		<span aria-hidden="true" class:off={disabled === true}>{label}</span>
+	{/if}
+	<!-- display state Yes/No | On/Off in the label -->
+	{#if !label && showState}
 		<span aria-hidden="true" class:off={disabled === true}>{isOn ? 'On' : 'Off'}</span>
+	{/if}
+	<!-- display children between starting and ending tags -->
+	{#if !label && children}
+		{@render children()}
 	{/if}
 </label>
 
@@ -67,8 +82,8 @@
 		-webkit-tap-highlight-color: transparent;
 
 		& > span {
-			width: 3ch;
-			text-transform: uppercase;
+			min-width: 4ch;
+			/* text-transform: uppercase; */
 		}
 		& .off {
 			color: hsl(var(--hsl-platinum));
@@ -207,7 +222,8 @@
 		--item-color: var(--hsl-black-matte);
 	}
 
-	.pill, .pill:before{
+	.pill,
+	.pill:before {
 		border-radius: 10rem !important;
 	}
 </style>

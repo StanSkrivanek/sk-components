@@ -7,6 +7,7 @@
 	// const itsId = crypto.getRandomValues(new Uint32Array(1))[0].toString(36);
 
 	interface Props {
+		name?: string;
 		is?: string;
 		label?: string;
 		checked?: true;
@@ -14,42 +15,36 @@
 		disabled?: boolean;
 		children?: Snippet;
 		role?: string;
+		isParent?: boolean;
 	}
 
-	let { is, disabled, checked, label, showState, role, children  }: Props = $props();
-
-	let isOn = $state(false);
-
-	function handleToggle() {
-		isOn = !isOn;
-		console.log(isOn);
-	}
+	let { is, name, disabled, checked, label, showState, role, isParent, children }: Props = $props();
 </script>
 
-<label for={thisId} class={`gui-switch ${is}`}>
-	<span aria-hidden="true" class="sr-only">{isOn ? 'On' : 'Off'}</span>
+<label class={`gui-switch`}>
+	<span aria-hidden="true" class="sr-only">{checked ? 'On' : 'Off'}</span>
 	<input
-		class={is}
 		type="checkbox"
-		aria-checked={isOn}
-		onclick={handleToggle}
-		onkeyup={() => handleToggle}
+		value={checked ? 'On' : 'Off'}
 		id={thisId}
+		class={is}
 		tabindex="0"
-		
+		data-parent={isParent}
+		aria-checked={checked}
+		{name}
 		{role}
 		{disabled}
 		{checked}
 	/>
 	<!-- display state Yes/No | On/Off in the label -->
 	{#if showState}
-		<span aria-hidden="true" class:off={disabled === true}>{isOn ? 'On' : 'Off'}</span>
+		<span aria-hidden="true" class:off={disabled === true}>{checked ? 'On' : 'Off'}</span>
 	{/if}
 	{#if label}
 		<span aria-hidden="true" class:off={disabled === true}>{label}</span>
 	{/if}
 	<!-- display children between starting and ending tags ONLY if prop label is not defined. Prop labe takes precedence -->
-	{#if !label && children }
+	{#if !label && children}
 		{@render children()}
 	{/if}
 </label>
@@ -60,22 +55,22 @@
 
 		--radius: 0.25rem;
 
-		--cbox-size: 0.8rem;
-		/* --cbox: hsl(var(--hsl-white)); */
-		--cbox-highlight: hsl(var(--_private-color) / 0.5);
-		--cbox-color: hsl(var(--hsl-transparent));
+		--checkbox-size: 0.75rem;
+		/* --checkbox: hsl(var(--hsl-white)); */
+		--checkbox-highlight: hsl(var(--_private-color) / 0.5);
+		--checkbox-color: hsl(var(--hsl-transparent));
 
-		--track-size: calc(var(--cbox-size));
+		--track-size: var(--checkbox-size);
 		--track-padding: 2px;
 		--track-inactive: hsl(var(--hsl-white));
 		--track-active: hsl(var(--item-color, var(--hsl-green)));
 
+		user-select: none;
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
 		justify-content: flex-start;
-
-		user-select: none;
+		margin-bottom: 0.5rem;
 		/* transition: all 0.26s ease-in-out; */
 		-webkit-tap-highlight-color: transparent;
 
@@ -87,8 +82,8 @@
 			color: hsl(var(--hsl-platinum));
 		}
 		& > input {
-			--cbox-position: 0%;
-			--cbox-transition-duration: 0.25s;
+			--checkbox-position: 0%;
+			--checkbox-transition-duration: 0.25s;
 
 			/* hide original checkbox */
 			appearance: none;
@@ -101,17 +96,20 @@
 			padding: var(--track-padding);
 			background: var(--track-inactive);
 			inline-size: var(--track-size);
-			block-size: var(--cbox-size);
+			block-size: var(--checkbox-size);
 
 			border: 1px solid hsl(var(--hsl-gray));
 			border-radius: var(--radius);
 			outline-offset: 3px;
 
 			cursor: pointer;
-			/* touch-action: pan-y; */
 
 			transition: background-color 0.26s ease-in-out;
 
+			/* set group of checkboxes under parent checkbox to right as in eg. a list */
+			&:not([data-parent='true']) {
+				margin-left: calc(var(--checkbox-size) * 1.5);
+			}
 			&:focus,
 			&:hover {
 				outline: 2px solid var(--track-active);
@@ -120,13 +118,13 @@
 			&::before {
 				content: '';
 				position: absolute;
-				top: calc(var(--cbox-size) * 0.05);
-				left: calc(var(--cbox-size) * 0.25);
+				top: calc(var(--checkbox-size) * 0.046);
+				left: calc(var(--checkbox-size) * 0.25);
 				grid-area: track;
-				inline-size: calc(var(--cbox-size) * 0.5);
-				block-size: calc(var(--cbox-size) * 0.75);
+				inline-size: calc(var(--checkbox-size) * 0.5);
+				block-size: calc(var(--checkbox-size) * 0.75);
 				rotate: 43deg;
-				border: calc(var(--cbox-size) * 0.2) solid transparent;
+				border: calc(var(--checkbox-size) * 0.2) solid transparent;
 				border-top: 0;
 				border-left: 0;
 			}
