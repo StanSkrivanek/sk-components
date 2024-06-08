@@ -3,6 +3,10 @@ node_modules
 /build
 /.svelte-kit
 /package
+/Notes
+/Notes/*
+/unused
+/unused/*
 .env
 .env.*
 !.env.example

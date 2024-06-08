@@ -7,10 +7,11 @@
 	interface Props {
 		is?: string;
 		disabled?: boolean;
+		checked?: true;
 		hasLabel?: boolean;
 	}
 
-	let { is, disabled, hasLabel }: Props = $props();
+	let { is, disabled, checked, hasLabel }: Props = $props();
 
 	let isOn = $state(false);
 
@@ -20,41 +21,40 @@
 	}
 </script>
 
-<label for={thisId} class="gui-switch {is}">
+<label for={thisId} class={`gui-switch ${is}`}>
 	<span aria-hidden="true" class="sr-only">{isOn ? 'On' : 'Off'}</span>
 	<input
+		class={is}
 		type="checkbox"
+		role="switch"
 		aria-checked={isOn}
 		onclick={handleToggle}
 		onkeyup={() => handleToggle}
 		id={thisId}
 		tabindex="0"
 		{disabled}
+		{checked}
 	/>
 	{#if hasLabel}
-	<span aria-hidden="true" class:off={disabled === true}>{isOn ? 'On' : 'Off'}</span>
+		<span aria-hidden="true" class:off={disabled === true}>{isOn ? 'On' : 'Off'}</span>
 	{/if}
 </label>
 
 <style>
 	.gui-switch {
-		--_private-color: var(--item-color, var(--hsl-lightgray));
+		--_private-color: var(--item-color, var(--hsl-white));
 
-		--thumb-size: 1.6rem;
+		--radius: 0.25rem;
 
-		--thumb: hsl(var(--hsl-white));
-		--thumb-highlight: hsl(var(--_private-color) / 0.5);
+		--cbox-size: 0.8rem;
+		/* --cbox: hsl(var(--hsl-white)); */
+		--cbox-highlight: hsl(var(--_private-color) / 0.5);
+		--cbox-color: hsl(var(--hsl-transparent));
 
-		--track-size: calc(var(--thumb-size) * 2.1);
+		--track-size: calc(var(--cbox-size));
 		--track-padding: 2px;
-		--track-inactive: hsl(var(--hsl-lightgray));
+		--track-inactive: hsl(var(--hsl-white));
 		--track-active: hsl(var(--item-color, var(--hsl-green)));
-		/* --border-width: calc(var(--general-size) / 10); */
-
-		--thumb-color: var(--thumb);
-		/* --thumb-color-highlight: hsl(var(--thumb-highlight)); */
-		--track-color-inactive: var(--track-inactive);
-		--track-color-active: var(--track-active);
 
 		display: flex;
 		align-items: center;
@@ -62,7 +62,7 @@
 		justify-content: flex-start;
 
 		user-select: none;
-		transition: all 0.26s ease-in-out;
+		/* transition: all 0.26s ease-in-out; */
 		-webkit-tap-highlight-color: transparent;
 
 		& > span {
@@ -73,26 +73,28 @@
 			color: hsl(var(--hsl-platinum));
 		}
 		& > input {
-			--thumb-position: 0%;
-			--thumb-transition-duration: 0.25s;
+			--cbox-position: 0%;
+			--cbox-transition-duration: 0.25s;
 
 			/* hide original checkbox */
 			appearance: none;
-
+			position: relative;
 			display: grid;
 			align-items: center;
 			grid: [track] 1fr / [track] 1fr;
 
 			box-sizing: content-box;
 			padding: var(--track-padding);
-			background: var(--track-color-inactive);
+			background: var(--track-inactive);
 			inline-size: var(--track-size);
-			block-size: var(--thumb-size);
-			border-radius: var(--track-size);
+			block-size: var(--cbox-size);
+
+			border: 1px solid hsl(var(--hsl-platinum));
+			border-radius: var(--radius);
 			outline-offset: 3px;
 
 			cursor: pointer;
-			touch-action: pan-y;
+			/* touch-action: pan-y; */
 
 			transition: background-color 0.26s ease-in-out;
 
@@ -103,31 +105,20 @@
 
 			&::before {
 				content: '';
+				position: absolute;
+				top: 0;
+				left: calc(var(--cbox-size) * 0.25);
 				grid-area: track;
-				inline-size: var(--thumb-size);
-				block-size: var(--thumb-size);
-				background: var(--thumb-color);
-
-				border-radius: 50%;
-				transform: translateX(var(--thumb-position));
-				transition: all 0.26s ease-in-out;
-
-				@media (--motionOK) {
-					& {
-						transition:
-							transform var(--thumb-transition-duration) ease,
-							box-shadow 0.26s ease;
-					}
-				}
+				inline-size: calc(var(--cbox-size) * 0.5);
+				block-size: calc(var(--cbox-size) * 0.75);
+				rotate: 43deg;
+				border: 3px solid transparent;
+				border-top: 0;
+				border-left: 0;
 			}
 
-			&:checked {
-				background: var(--track-color-active);
-				--thumb-position: calc((var(--track-size) - 100%));
-			}
-
-			&:indeterminate {
-				--thumb-position: calc(calc(calc(var(--track-size) / 2) - calc(var(--thumb-size) / 2)));
+			&:checked::before {
+				border-color: var(--track-active);
 			}
 
 			&:disabled {
@@ -138,11 +129,11 @@
 				&::before {
 					cursor: not-allowed;
 
-					@media (prefers-color-scheme: dark) {
+					/* @media (prefers-color-scheme: dark) {
 						& {
 							box-shadow: inset 0 0 0 2px hsl(0 0% 0% / 50%);
 						}
-					}
+					} */
 				}
 			}
 		}
@@ -160,6 +151,7 @@
 		font-size: var(--xs);
 		white-space: nowrap;
 	}
+
 	/* Colors - can be used in Global app.css instead of here*/
 	.red {
 		--item-color: var(--hsl-red);
@@ -203,5 +195,10 @@
 
 	.black {
 		--item-color: var(--hsl-black-matte);
+	}
+
+	.pill,
+	.pill:before {
+		border-radius: 10rem !important;
 	}
 </style>

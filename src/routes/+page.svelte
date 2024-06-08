@@ -1,36 +1,26 @@
 <script lang="ts">
-	import BtnSwitchInnerText from './../lib/elements/switch/as_button/BtnSwitchInnerText.svelte';
-	import BtnSwitchLabel from './../lib/elements/switch/as_button/BtnSwitchLabel.svelte';
-	import BtnSwitchBasic from './../lib/elements/switch/as_button/BtnSwitchBasic.svelte';
-	import BtnSwitchInnerIcon from '$lib/elements/switch/as_button/BtnSwitchInnerIcon.svelte';
 	import Badge from '$lib/elements/badge/Badge.svelte';
 	import BadgeWithIcon from '$lib/elements/badge/BadgeIcon.svelte';
 	import Button from '$lib/elements/button/Button.svelte';
-	import SwitchLabel from '$lib/elements/switch/as_button/BtnSwitchLabel.svelte';
-	// import SwitchIcons from '../lib/elements/switch/as_button/_SwitchIcons.svelte';
-	// import New from '$lib/elements/switch/as_button/New.svelte';
-	// import BtnSwBasic from '$lib/elements/switch/as_button/SwitchBasic.svelte';
-	// import BtnSwLabel from '$lib/elements/switch/as_button/_SwitchLabel.svelte';
-	// import SwitchText from '$lib/elements/switch/as_button/_SwitchText.svelte';
-	// import SwitchCheckboxLabel from '$lib/elements/switch/as_checkbox/SwitchCheckbox.svelte';
-	// import SwitchCheckboxThumbIcon from '$lib/elements/switch/as_checkbox/SwitchCheckboxThumbIcon.svelte';
+	import BtnSwitchInnerIcon from '$lib/elements/button/as_switch/BtnSwitchInnerIcon.svelte';
+	import Checkbox from '$lib/elements/checkbox/Checkbox.svelte';
+
+	import BtnSwitchBasic from '$lib/elements/button/as_switch/BtnSwitchBasic.svelte';
+	import BtnSwitchInnerText from '$lib/elements/button/as_switch/BtnSwitchInnerText.svelte';
+	import BtnSwitchLabel from '$lib/elements/button/as_switch/BtnSwitchLabel.svelte';
+	// import CheckboxSwitch from '$lib/elements/checkbox/as_switch/CheckboxSwitch.svelte';
 </script>
 
-<!-- <CheckSwitchBasic /> -->
 <div class="flex__c">
-	<BtnSwitchBasic is="red" />
-	<BtnSwitchLabel is="blue" />
-	<BtnSwitchInnerText is="blue"  />
-	<BtnSwitchInnerIcon is="pink" />
-	<!-- <SwitchBasic is="black" /> -->
-	<!-- <SwitchIcons  />
-	<SwitchIcons is="red" />
-	<SwitchIcons is="blue" /> -->
-	<!-- <SwitchCheckboxLabel is="black" disabled /> -->
-	<!-- <SwitchCheckboxLabel is="blue" hasLabel /> -->
-	<!-- <SwitchCheckboxThumbIcon is="blue" /> -->
+	<!-- stuff -->
+	<Checkbox checked />
+	<Checkbox is="red" hasLabel />
+	<Checkbox is="black" />
+	<Checkbox disabled checked />
+	<!-- <CheckboxSwitch is="blue " hasLabel/> -->
+	<!-- <CheckboxSwitch is="red " hasLabel/> -->
+	<!-- <CheckboxSwitch  hasLabel/> -->
 </div>
-<!-- <New is="red" /> -->
 
 <h1>Badges</h1>
 <p class="sub-category">Badge size</p>
@@ -100,21 +90,28 @@
 
 <div class="flex__c">
 	<Button
-		is="red extrasmall"
+		is="red xs"
 		onClick={() => {
 			console.log('click');
 		}}
 		>extra small
 	</Button>
 	<Button
-		is="red small"
+		is="red sm"
 		onClick={() => {
 			console.log('click');
 		}}
-		>extra small
+		>small
 	</Button>
 	<Button
-		is="red medium"
+		is="red "
+		onClick={() => {
+			console.log('click');
+		}}
+		>basic
+	</Button>
+	<Button
+		is="red md"
 		onClick={() => {
 			console.log('click');
 		}}
@@ -122,7 +119,7 @@
 	</Button>
 
 	<Button
-		is="red large"
+		is="red lg"
 		onClick={() => {
 			console.log('click');
 		}}
@@ -217,23 +214,22 @@
 
 <p class="sub-category">Toggle Button</p>
 <div class="flex__c">
-	<BtnSwitchBasic  />
+	<BtnSwitchBasic />
 </div>
 
 <p class="sub-category">Toggle Button with Label</p>
 <div class="flex__c">
-	<BtnSwitchLabel  />
-	
+	<BtnSwitchLabel />
 </div>
 
 <p class="sub-category">Toggle Button with text</p>
 <div class="flex__c">
-<BtnSwitchInnerText  />
+	<BtnSwitchInnerText />
 </div>
 
 <p class="sub-category">Toggle Button with icon</p>
 <div class="flex__c">
-<BtnSwitchInnerIcon  />
+	<BtnSwitchInnerIcon />
 </div>
 
 <hr />

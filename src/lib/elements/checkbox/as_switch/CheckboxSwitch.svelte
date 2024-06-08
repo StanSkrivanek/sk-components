@@ -20,10 +20,12 @@
 	}
 </script>
 
-<label for={thisId} class="gui-switch {is}">
+<label for={thisId} class={`gui-switch ${is}`}>
 	<span aria-hidden="true" class="sr-only">{isOn ? 'On' : 'Off'}</span>
 	<input
+		class={is}
 		type="checkbox"
+		role="switch"
 		aria-checked={isOn}
 		onclick={handleToggle}
 		onkeyup={() => handleToggle}
@@ -32,7 +34,7 @@
 		{disabled}
 	/>
 	{#if hasLabel}
-	<span aria-hidden="true" class:off={disabled === true}>{isOn ? 'On' : 'Off'}</span>
+		<span aria-hidden="true" class:off={disabled === true}>{isOn ? 'On' : 'Off'}</span>
 	{/if}
 </label>
 
@@ -40,19 +42,18 @@
 	.gui-switch {
 		--_private-color: var(--item-color, var(--hsl-lightgray));
 
-		--thumb-size: 1.6rem;
+		--radius: 0.25rem;
 
+		--thumb-size: 1.6rem;
 		--thumb: hsl(var(--hsl-white));
 		--thumb-highlight: hsl(var(--_private-color) / 0.5);
+		--thumb-color: var(--thumb);
 
 		--track-size: calc(var(--thumb-size) * 2.1);
 		--track-padding: 2px;
 		--track-inactive: hsl(var(--hsl-lightgray));
 		--track-active: hsl(var(--item-color, var(--hsl-green)));
-		/* --border-width: calc(var(--general-size) / 10); */
 
-		--thumb-color: var(--thumb);
-		--thumb-color-highlight: hsl(var(--thumb-highlight));
 		--track-color-inactive: var(--track-inactive);
 		--track-color-active: var(--track-active);
 
@@ -85,10 +86,10 @@
 
 			box-sizing: content-box;
 			padding: var(--track-padding);
-			background: var(--track-color-inactive);
+			background: var(--track-inactive);
 			inline-size: var(--track-size);
 			block-size: var(--thumb-size);
-			border-radius: var(--track-size);
+			border-radius: var(--radius);
 			outline-offset: 3px;
 
 			cursor: pointer;
@@ -108,7 +109,7 @@
 				block-size: var(--thumb-size);
 				background: var(--thumb-color);
 
-				border-radius: 50%;
+				border-radius: var(--radius);
 				transform: translateX(var(--thumb-position));
 				transition: all 0.26s ease-in-out;
 
@@ -122,7 +123,7 @@
 			}
 
 			&:checked {
-				background: var(--track-color-active);
+				background: var(--track-active);
 				--thumb-position: calc((var(--track-size) - 100%));
 			}
 
@@ -160,6 +161,7 @@
 		font-size: var(--xs);
 		white-space: nowrap;
 	}
+
 	/* Colors - can be used in Global app.css instead of here*/
 	.red {
 		--item-color: var(--hsl-red);
@@ -203,5 +205,9 @@
 
 	.black {
 		--item-color: var(--hsl-black-matte);
+	}
+
+	.pill, .pill:before{
+		border-radius: 10rem !important;
 	}
 </style>

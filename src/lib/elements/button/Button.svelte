@@ -16,7 +16,7 @@
 		cursor: pointer;
 		color: color-mix(in oklab, hsl(var(--_private-color)), white 80%);
 		background: color-mix(in oklab, hsl(var(--_private-color)), white 3%);
-		padding: 1rem 2.2rem;
+		padding: 0.75rem 2.2rem;
 		border: none;
 		border-radius: 0.25rem;
 		font-size: var(--sm);
@@ -24,10 +24,12 @@
 		text-transform: uppercase;
 		font-family: var(--fw-bold);
 		transition: all 0.1s ease-in-out;
+
 		&:hover {
 			background: color-mix(in oklab, hsl(var(--_private-color)), black 10%);
 			color: color-mix(in oklab, hsl(var(--_private-color)), white 90%);
 		}
+
 		&.outline {
 			border: 1px solid color-mix(in oklab, hsl(var(--_private-color)), white 30%);
 			color: color-mix(in oklab, hsl(var(--_private-color)), black 10%);
@@ -37,30 +39,46 @@
 				color: color-mix(in oklab, hsl(var(--_private-color)), black 30%);
 			}
 		}
-		&.large {
+
+		&.lg {
 			font-size: var(--md);
+			letter-spacing: -0.02rem;
+			padding: 1.2rem 3.2rem;
+		}
+		&.md {
+			font-size: var(--sm);
 			letter-spacing: -0.02rem;
 			padding: 1rem 2rem;
 		}
-		&.medium {
-			font-size: var(--sm);
-			letter-spacing: -0.02rem;
-			padding: 0.75rem 1.6rem;
-		}
-		&.small {
+		&.sm {
 			padding: 0.75rem 1.4rem;
 			font-size: var(--xs);
 		}
-		&.extrasmall {
+		&.xs {
 			padding: 0.5rem 1rem;
 			font-size: var(--xxs);
 		}
+		&.rounded {
+			border-radius: 0.5rem;
+		}
+
 		&.pill {
 			border-radius: 100px;
+		}
+		&.block {
+			display: block;
+			width: 100%;
 		}
 	}
 
 	/* Colors - can be used in Global app.css instead of here*/
+	.primary {
+		--item-color: var(--hsl-primary);
+	}
+
+	.secondary {
+		--item-color: var(--hsl-secondary);
+	}
 	.red {
 		--item-color: var(--hsl-red);
 	}

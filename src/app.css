@@ -77,8 +77,8 @@
 	--showColor: hsl(220, 4%, 85%);
 	--transparent: transparent;
 
-	--hsl-primary: 260 82% 71%;
-	--hsl-secondary: 196 100% 50%;
+	--hsl-primary: 196 100% 50%;
+	--hsl-secondary: 260 82% 71%;
 
 	--hsl-white: 0 0% 100%;
 	/* blacks */
@@ -111,11 +111,18 @@
 	--hsl-pink: 301 55% 69%;
 	--hsl-red: 350 100% 65%;
 
-	/** TODO: 
-		* --clr-primary: 
-		* --clr-secondary:
-		* --clr-accent
-		*/
+	/* TODO:
+	--clr-primary: 
+	--clr-secondary: 
+	--clr-accent:
+	--clr-success:
+	--clr--danger: 
+	--clr-warning: 
+	--clr-info:
+	--clr-light: 
+	--clr-dark: 
+	--clr-link: 
+	*/
 
 	--clr-brand: color-mix(in oklab, hsl(var(--hsl-main)) 65%, white);
 	--clr-brand-darker: color-mix(in oklab, hsl(var(--hsl-main)) 80%, black 5%);
