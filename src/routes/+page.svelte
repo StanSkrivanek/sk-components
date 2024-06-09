@@ -1,6 +1,7 @@
 <script lang="ts">
-	import CheckboxGroupClass from "$lib/elements/checkbox/CheckboxGroupClass.svelte";
-
+	import CheckboxGroupClass from '$lib/elements/checkbox/CheckboxGroupClass.svelte';
+	const desktop = ['Mac Studio', 'Mac Mini', 'iMac', 'Mac Pro'];
+	const mobile = ['Macbook', 'iPad', 'iPhone'];
 	// import CheckboxGroup from '../../unused/CheckboxGroup-2.svelte';
 	// import CheckboxTest from '$lib/elements/checkbox/CheckboxTest.svelte';
 	// import Badge from '$lib/elements/badge/Badge.svelte';
@@ -15,11 +16,10 @@
 
 <div class="flex__c">
 	<!-- stuff -->
-	<CheckboxGroupClass/>
-	<!-- <form action="">
-		
-	</form> -->
-
+	<form action="">
+		<CheckboxGroupClass data={desktop} />
+		<!-- <CheckboxGroupClass data={mobile} /> -->
+	</form>
 </div>
 
 <!-- <div class="flex__c"> -->

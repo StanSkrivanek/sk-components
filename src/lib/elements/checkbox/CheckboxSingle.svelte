@@ -5,8 +5,8 @@
 		value?: string;
 		children?: string;
 		onClick?: () => void;
-		// ...props: any;
 		'data-top'?: boolean;
+		'data-child'?: boolean;
 	}
 
 	const { is, name, value, children, onClick, ...props }: Props = $props();
@@ -40,6 +40,7 @@
 		align-items: center;
 		padding: 0.375em;
 		position: relative;
+		margin-left: 0;
 		-webkit-user-select: none;
 		user-select: none;
 		-webkit-tap-highlight-color: transparent;
@@ -47,13 +48,10 @@
 			font-weight: 600;
 		}
 	}
-
-	/* .checkbox-label + .checkbox-label {
-	margin-left: 2em;
-} */
-	.checkbox-label:not(:first-of-type) {
+	.checkbox-label:has(input[data-child]) {
 		margin-left: 2em;
 	}
+
 	.checkbox {
 		position: absolute;
 		clip: rect(1px, 1px, 1px, 1px);

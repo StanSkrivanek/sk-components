@@ -16,7 +16,7 @@
 		role?: string;
 	}
 
-	let { is, disabled, checked, label, showState, role, children  }: Props = $props();
+	let { is, disabled, checked, label, showState, role, children }: Props = $props();
 
 	let isOn = $state(false);
 
@@ -26,7 +26,7 @@
 	}
 </script>
 
-<label for={thisId} class={`gui-switch ${is}`}>
+<label for={thisId} class={`gui-switch ${is}`} >
 	<span aria-hidden="true" class="sr-only">{isOn ? 'On' : 'Off'}</span>
 	<input
 		class={is}
@@ -36,7 +36,6 @@
 		onkeyup={() => handleToggle}
 		id={thisId}
 		tabindex="0"
-		
 		{role}
 		{disabled}
 		{checked}
@@ -49,7 +48,7 @@
 		<span aria-hidden="true" class:off={disabled === true}>{label}</span>
 	{/if}
 	<!-- display children between starting and ending tags ONLY if prop label is not defined. Prop labe takes precedence -->
-	{#if !label && children }
+	{#if !label && children}
 		{@render children()}
 	{/if}
 </label>
@@ -165,7 +164,9 @@
 		font-size: var(--xs);
 		white-space: nowrap;
 	}
-
+	.child {
+		margin-left: 2em;
+	}
 	/* Colors - can be used in Global app.css instead of here*/
 	.red {
 		--item-color: var(--hsl-red);
