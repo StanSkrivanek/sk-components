@@ -1,4 +1,6 @@
 <script lang="ts">
+	import CheckboxGroupClass from "$lib/elements/checkbox/CheckboxGroupClass.svelte";
+
 	// import CheckboxGroup from '../../unused/CheckboxGroup-2.svelte';
 	// import CheckboxTest from '$lib/elements/checkbox/CheckboxTest.svelte';
 	// import Badge from '$lib/elements/badge/Badge.svelte';
@@ -13,7 +15,7 @@
 
 <div class="flex__c">
 	<!-- stuff -->
-	
+	<CheckboxGroupClass/>
 	<!-- <form action="">
 		
 	</form> -->

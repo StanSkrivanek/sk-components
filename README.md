@@ -6,8 +6,6 @@
 
 [x] - basic
 
-
-
 [] - basic Switch
 [x] - Pill
 [x] - with ON-OFF label on right
@@ -55,7 +53,7 @@ HTML input `type="checkbox"` has `checked | unchecked` states defined by default
 
 - **Forms**
   - Inputs (single, group with Icon etc)
-  - Checkbox
+  - Checkbox (single, group) **(group = $bindable())** doesn't work in svelte 5 yet as getting errors and RH says it not priority yet [github](https://github.com/sveltejs/svelte/pull/11256)
   - Radio
   - Calendar
   - Select
