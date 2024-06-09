@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CheckboxGroup from '../../unused/CheckboxGroup-2.svelte';
+	// import CheckboxGroup from '../../unused/CheckboxGroup-2.svelte';
 	// import CheckboxTest from '$lib/elements/checkbox/CheckboxTest.svelte';
 	// import Badge from '$lib/elements/badge/Badge.svelte';
 	// import BadgeWithIcon from '$lib/elements/badge/BadgeIcon.svelte';
@@ -13,23 +13,11 @@
 
 <div class="flex__c">
 	<!-- stuff -->
-	<!-- <CheckboxSwitch is="red pill" showState>WI-FI</CheckboxSwitch> -->
-	<!-- <Checkbox is="red pill" showState checked role="switch" /> -->
-	<form action="">
-		<CheckboxGroup />
-		<!-- <div class="checkbox-group"> -->
-			<!-- <CheckboxTest label="Select all" isParent />
-			<CheckboxTest name="wifi" label="wifi" checked />
-			<CheckboxTest name="ethernet" label="ethernet" />
-			<CheckboxTest name="bluetooth" label="bluetooth" /> -->
-			<!-- <ul>
-				<li><CheckboxTest name="connection" label="wifi" /></li>
-				<li><CheckboxTest name="connection" label="ethernet" /></li>
-			</ul> -->
-		<!-- </div> -->
-	</form>
-	<!-- <CheckboxTest name="connection" value="wi-fi" isParent label="wifi" /> -->
-	<!-- <CheckboxTest name="connection" value="ethernet" isParent label="ethernet" /> -->
+	
+	<!-- <form action="">
+		
+	</form> -->
+
 </div>
 
 <!-- <div class="flex__c"> -->
