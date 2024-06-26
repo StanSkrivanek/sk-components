@@ -20,7 +20,7 @@
 	<!-- stuff -->
 	<form action="">
 		<!-- group = Parent element name, data = Array of data -->
-		<!-- <CheckboxGroupClass group="Apple Desktop" data={desktop} /> -->
+		<CheckboxGroupClass group="Apple Desktop" data={desktop} />
 		<CheckboxGroupClass group="TEST" data={test} />
 		<CheckboxGroupClass group="Mobile" data={mobile} />
 		<CheckboxSingle name="test" value="test" />

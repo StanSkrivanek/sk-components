@@ -2,24 +2,30 @@
 	// @ts-nocheck
 
 	import CheckboxSingle from './CheckboxSingle.svelte';
+	// on page where is form with checkboxes we need add arrays of data like this:
+
 	// const desktop = ['Mac Studio', 'Mac Mini', 'iMac', 'Mac Pro'];
+	// const mobile = ['Macbook', 'iPad', 'iPhone'];
+	// implement checkboxes Group will be like this:
+
+	// <Form>
+	// <CheckboxGroupClass group="Apple Desktop" data={desktop} />
+	// <CheckboxGroupClass group="Mobile" data={mobile} />
+	// </Form>
+
 	interface Props {
 		data: string[];
 		group: string;
 	}
 
 	const { data, group }: Props = $props();
-	// let inputs = [];
-	// let children = [];
+
 	$effect(() => {
 		const checkboxCroups = [...document.querySelectorAll('.checkbox-group')];
-		// console.log("🚀 ~ onMount ~ checkboxCroups:", checkboxCroups)
 		checkboxCroups.forEach((group: any) => {
 			const inputs = [...group.querySelectorAll('input')];
-			// console.log("🚀 ~ checkboxCroups.forEach ~ inputs:", inputs)
 			inputs.forEach((el: any) => {
 				(el as HTMLInputElement).checked = false;
-				// console.log(el.checked);
 			});
 		});
 	});
@@ -45,37 +51,15 @@
 				parent.checked = !notAllChecked;
 				parent.indeterminate = checked.length > 0 && notAllChecked;
 			}
-			// }
 		}
 	}
 </script>
 
 <div class="checkbox-group-container">
 	<div class="checkbox-group">
-		<CheckboxSingle name={group} value={group} data-parent onclick={checkForSelected} />
+		<CheckboxSingle name={group} value={group} onclick={checkForSelected} data-parent />
 		{#each data as item}
-			<CheckboxSingle name={group} value={item} data-child onclick={checkForSelected} />
-			<!-- <label class="checkbox-label">
-				<input class="checkbox" type="checkbox" name={group} value={item} data-child/>
-				<svg class="check-icon" width="24px" height="24px" viewBox="0 0 24 24">
-					<g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-						<rect class="check-icon__box" x="1" y="1" width="22" height="22" />
-						<polyline
-							class="check-icon__box-worm"
-							points="23,1 1,1 1,23 23,23 23,4"
-							stroke-dasharray="30 146"
-							stroke-dashoffset="30"
-						/>
-						<polyline
-							class="check-icon__check-worm"
-							points="23,4 10,17 5,12 18,12"
-							stroke-dasharray="17.38 149.68"
-							stroke-dashoffset="103.38"
-						/>
-					</g>
-				</svg>
-				<span class="checkbox-text">{item}</span>
-			</label> -->
+			<CheckboxSingle name={group} value={item} onclick={checkForSelected} data-child />
 		{/each}
 	</div>
 </div>
