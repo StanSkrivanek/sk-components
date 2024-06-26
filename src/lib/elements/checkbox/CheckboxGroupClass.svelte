@@ -1,75 +1,83 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	// @ts-nocheck
+
 	import CheckboxSingle from './CheckboxSingle.svelte';
-const desktop = ['Mac Studio', 'Mac Mini', 'iMac', 'Mac Pro'];
+	// const desktop = ['Mac Studio', 'Mac Mini', 'iMac', 'Mac Pro'];
 	interface Props {
 		data: string[];
+		group: string;
 	}
 
-	const { data }: Props = $props();
-
-	onMount(() => {
-		const checklist = new Checklist('.checkbox-group-container');
-		console.log(checklist);
+	const { data, group }: Props = $props();
+	// let inputs = [];
+	// let children = [];
+	$effect(() => {
+		const checkboxCroups = [...document.querySelectorAll('.checkbox-group')];
+		// console.log("🚀 ~ onMount ~ checkboxCroups:", checkboxCroups)
+		checkboxCroups.forEach((group: any) => {
+			const inputs = [...group.querySelectorAll('input')];
+			// console.log("🚀 ~ checkboxCroups.forEach ~ inputs:", inputs)
+			inputs.forEach((el: any) => {
+				(el as HTMLInputElement).checked = false;
+				// console.log(el.checked);
+			});
+		});
 	});
 
-	class Checklist {
-		[x: string]: any;
-		constructor(qs: string) {
-			this.el = document.querySelector(qs);
-			this.el?.addEventListener('change', this.checkForSelected.bind(this));
-			this.init();
-		}
+	function checkForSelected(e: { target: HTMLInputElement }) {
+		const tar = e.target;
+		const isParent = tar.hasAttribute('data-parent');
+		updateChecks(tar.name, isParent);
+	}
 
-		init() {
-			const inputs = this.el.querySelectorAll('input');
-			console.log('inputs', inputs);
+	function updateChecks(name: string, isParent = false) {
+		if (name) {
+			const parent = document.querySelector(`[name="${name}"][data-parent]`);
+			const children = [...document.querySelectorAll(`[name="${name}"][data-child]`)];
+			const checked = children.filter((el) => el.checked);
+			const notAllChecked = checked.length < children.length;
 
-			Array.from(inputs).forEach((el: any) => {
-				el.checked = false;
-			});
-		}
-		checkForSelected(e: any) {
-			const tar = e.target;
-			const isTop = tar.hasAttribute('data-top');
-			// console.log(isTop);
-
-			this.updateChecks(tar.name, isTop);
-		}
-
-		updateChecks(name: string, isTop = false) {
-			if (name) {
-				const topCheck = this.el.querySelector(`[name="${name}"][data-top]`);
-				const checkItems = this.el.querySelectorAll(`[name="${name}"]:not([data-top])`);
-				const checked = Array.from(checkItems).filter((el: any) => el.checked);
-				const notAllChecked = checked.length < checkItems.length;
-
-				if (isTop) {
-					Array.from(checkItems).forEach((el: any) => {
-						el.checked = notAllChecked;
-					});
-				} else {
-					topCheck.checked = !notAllChecked;
-					topCheck.indeterminate = checked.length > 0 && notAllChecked;
-				}
+			if (isParent) {
+				Array.from(children).forEach((el: HTMLInputElement) => {
+					el.checked = notAllChecked;
+				});
+			} else if (parent) {
+				parent.checked = !notAllChecked;
+				parent.indeterminate = checked.length > 0 && notAllChecked;
 			}
+			// }
 		}
 	}
 </script>
 
 <div class="checkbox-group-container">
 	<div class="checkbox-group">
-		<CheckboxSingle name="desktop" value="Apple Desktop" data-top />
+		<CheckboxSingle name={group} value={group} data-parent onclick={checkForSelected} />
 		{#each data as item}
-			<CheckboxSingle name="desktop" value={item} data-child />
+			<CheckboxSingle name={group} value={item} data-child onclick={checkForSelected} />
+			<!-- <label class="checkbox-label">
+				<input class="checkbox" type="checkbox" name={group} value={item} data-child/>
+				<svg class="check-icon" width="24px" height="24px" viewBox="0 0 24 24">
+					<g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+						<rect class="check-icon__box" x="1" y="1" width="22" height="22" />
+						<polyline
+							class="check-icon__box-worm"
+							points="23,1 1,1 1,23 23,23 23,4"
+							stroke-dasharray="30 146"
+							stroke-dashoffset="30"
+						/>
+						<polyline
+							class="check-icon__check-worm"
+							points="23,4 10,17 5,12 18,12"
+							stroke-dasharray="17.38 149.68"
+							stroke-dashoffset="103.38"
+						/>
+					</g>
+				</svg>
+				<span class="checkbox-text">{item}</span>
+			</label> -->
 		{/each}
 	</div>
-	<!-- <div class="checkbox-group">
-		<CheckboxSingle name="mobile" value="Apple Mobile" data-top />
-		{#each data as device}
-			<CheckboxSingle name="mobile" value={device} data-child />
-		{/each}
-	</div> -->
 </div>
 
 <style>

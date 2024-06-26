@@ -4,12 +4,14 @@
 		name?: string;
 		value?: string;
 		children?: string;
-		onClick?: () => void;
-		'data-top'?: boolean;
+		indeterminate?: boolean;
+		// checked?: boolean;
+		onclick?: () => void;
+		'data-parent'?: boolean;
 		'data-child'?: boolean;
 	}
 
-	const { is, name, value, children, onClick, ...props }: Props = $props();
+	const { is, name, value, children, ...props }: Props = $props();
 </script>
 
 <label class="checkbox-label">
